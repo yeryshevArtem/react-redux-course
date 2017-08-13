@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import {Field, reduxForm} from 'redux-form';
 import {Link} from 'react-router-dom';
+import CSSModules from 'react-css-modules';
 import {connect} from 'react-redux';
-import {createPost} from '../actions/index';
+import {createPost} from '../../actions/index';
+import styles from './posts_new.css';
 
 class PostsNew extends Component {
   renderField(field) {
@@ -46,7 +48,7 @@ class PostsNew extends Component {
           name="content"
           component={this.renderField}
         />
-        <button type="submit" className="btn btn-primary">Submit</button>
+        <button type="submit" className={`btn btn-primary`} styleName="button-success">Submit</button>
         <Link to="/" className="btn btn-danger">Cancel</Link>
       </form>
     );
@@ -71,5 +73,5 @@ export default reduxForm({
   validate,
   form: 'PostsNewForm'
 })(
-  connect(null, {createPost})(PostsNew)
+  connect(null, {createPost})(CSSModules(PostsNew, styles))
 );

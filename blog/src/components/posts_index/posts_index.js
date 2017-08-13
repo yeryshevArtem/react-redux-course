@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import _ from 'lodash';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import {fetchPosts} from '../actions';
+import {fetchPosts} from '../../actions';
+import styles from './posts_index.css'
 
 class PostsIndex extends Component {
   componentDidMount() {
@@ -19,7 +20,7 @@ class PostsIndex extends Component {
   }
   render() {
     return (
-      <div>
+      <div className={styles.title}>
         <div className="text-xs-right">
           <Link className="btn btn-primary" to="/posts/new">
             Add a post
